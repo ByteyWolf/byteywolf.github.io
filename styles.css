@@ -130,7 +130,12 @@ body {
     height: auto;
 }
 
-.webname-text,
+.webname-text {
+    display: block;
+    max-height: 100%;
+    width: auto;
+    image-rendering: pixelated;
+}
 .contents-text {
     display: block;
     max-width: 100%;
@@ -142,4 +147,18 @@ body {
 
 .category-img {
     margin-top: 2px;
+    width: 110%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+.noise-background {
+  /* Set the background image using a Base64 encoded 1x1 noise texture */
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2PsJzM/AQAEkwLqgG+4mQAAAABJRU5ErkJggg==');
+
+  /* Crucial: Ensure the image repeats to cover the entire div */
+  background-repeat: repeat;
+
+  /* Optional: Set a fallback solid gray color */
+  background-color: #f0f0f0; 
 }
