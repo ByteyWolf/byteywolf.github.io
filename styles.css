@@ -37,74 +37,21 @@ body {
     overflow: hidden;
 }
 
+.topbar-img {
+    width: 100%;
+    height: auto;
+}
+
 .topbar {
     position: relative;
     width: 100%;
     margin-bottom: 6px;
 }
 
-.topbar>div,
-.topbar>svg {
-    display: inline-block;
-    vertical-align: top;
-}
-
-.logocontainer {
-    width: 20%;
-    height: 100%;
-    padding: 12px;
-    
-    position: relative;
-    background-color: #101010;
-    border-bottom: 4px solid #00ff00;
-    box-shadow: 0 3px 0 #005500;
-    text-align: center;
-    z-index: 3;
-}
-
-.logo {
-    max-width: 65%;
-    height: auto;
-    image-rendering: pixelated;
-    display: inline-block;
-}
-
-.topbar-line1 {
-    position: absolute;
-    top: 0;
-    left: calc(20% - 2px);
-    z-index: 2;
-    width: 10%;
-    height: calc(100% + 3px);
-}
-
-.topbar-line2 {
-    position: absolute;
-    top: 0;
-    left: 29.6%;
-    padding-left: 15px;
-    height: 51.5%;
-    z-index: 3;
-    
-    background-color: #101010;
-    border-bottom: 4px solid #00ff00;
-    box-shadow: 0 3px 0 #005500;
-    width: 100%;
-}
-
-.topbar-line2>img {
-    height: 100%;
-    width: auto;
-    padding: 2% 0;
-    margin-left: 15px;
-    display: block;
-    image-rendering: pixelated;
-}
-
 .leftbar {
     float: left;
     width: 20%;
-    padding: 10px 15px;
+    padding: min(1vh, 5px) min(2vw, 15px);
     
     height: auto;
 }
@@ -112,7 +59,7 @@ body {
 .page {
     position: relative;
     margin-left: 20%;
-    padding: 18px 30px;
+    padding: 2% 5%;
     
     height: auto;
 }
@@ -130,12 +77,6 @@ body {
     height: auto;
 }
 
-.webname-text {
-    display: block;
-    max-height: 100%;
-    width: auto;
-    image-rendering: pixelated;
-}
 .contents-text {
     display: block;
     max-width: 100%;
@@ -143,22 +84,11 @@ body {
     image-rendering: pixelated;
 }
 
-.contents-text {margin-bottom: 10px;}
+.contents-text {margin-bottom: 3%;}
 
 .category-img {
-    margin-top: 2px;
+    margin-top: min(3%, 3px);
     width: 110%;
     height: auto;
     image-rendering: pixelated;
-}
-
-.noise-background {
-  /* Set the background image using a Base64 encoded 1x1 noise texture */
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQIW2PsJzM/AQAEkwLqgG+4mQAAAABJRU5ErkJggg==');
-
-  /* Crucial: Ensure the image repeats to cover the entire div */
-  background-repeat: repeat;
-
-  /* Optional: Set a fallback solid gray color */
-  background-color: #f0f0f0; 
 }
