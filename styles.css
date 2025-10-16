@@ -11,7 +11,6 @@ body {
     background-color: black;
     background-image: url('img/stars.jpg');
     /* fallback */
-    background-size: cover;
 }
 
 #starCanvas {
