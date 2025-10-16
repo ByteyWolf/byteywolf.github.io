@@ -7,7 +7,7 @@ html,
 body {
     height: 100%;
     margin: 0;
-    font-family: system-ui, Arial, sans-serif;
+    font-family: monospace;
     background-color: black;
     background-image: url('img/stars.jpg');
     /* fallback */
@@ -29,7 +29,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 800px;
-    max-width: calc(100% - 40px);
     background: #000000;
     box-shadow: 0 0 20px #005500;
     
@@ -47,9 +46,14 @@ body {
     margin-bottom: 6px;
 }
 
+.topbar-area {
+    position: relative;
+}
+
 .leftbar {
     float: left;
     width: 20%;
+    padding: 5px 15px;
     padding: min(1vh, 5px) min(2vw, 15px);
     
     height: auto;
@@ -59,22 +63,40 @@ body {
     position: relative;
     margin-left: 20%;
     padding: 2% 5%;
-    
+    text-align: left;
     height: auto;
+    white-space: nowrap;
 }
 
 .top-cutout {
     position: absolute;
-    bottom: 100%;
+    bottom: 15%;
     right: 0;
-    width: 90%;
-    height: auto;
+    margin-bottom: 0;
+    margin-right: 0;
+    text-align: right;
+
+    width: 80%;
+    height: 0;
+    padding-bottom: 3.5%;
+    box-sizing: border-box;
 }
 
-.page-tab-illustration {
+.top-cutout-content {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: auto;
+    height: 100%;
 }
+
+.top-cutout-content > img {
+    display: inline-block;
+    height: 80%;
+    width: auto;
+    margin-right: 2%;
+}
+
 
 .contents-text {
     display: block;
@@ -86,8 +108,44 @@ body {
 .contents-text {margin-bottom: 3%;}
 
 .category-img {
+    margin-top: 3px;
     margin-top: min(3%, 3px);
     width: 110%;
     height: auto;
     image-rendering: pixelated;
+}
+
+.column1 {
+    display: inline-block;
+    vertical-align: top;
+    width: 60%;
+}
+.column2 {
+    display: inline-block;
+    vertical-align: top;
+    width: 40%;
+}
+
+.box {
+    position: relative;
+    background: #111;
+    color: #0f0;
+    border: 1px solid #050;
+    padding: 0 1em;
+    padding-top: 1em;
+    min-height: 5vh;
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+    white-space: normal;
+    margin-bottom: 2em;
+}
+
+.box-title-small {
+    position: absolute;
+    top: -1.5em;
+    left: 0.5em;
+    padding: 0 2em;
+    background-color: #111;
+    font-size: larger;
+    font-weight: bold;
 }
