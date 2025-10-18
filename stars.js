@@ -1,8 +1,8 @@
 let previousMousePosition = { x: 0, y: 0 };
-let deltaX = 0
-let deltaY = 0
-let targetDeltaX = 0
-let targetDeltaY = 0
+let deltaX = 0;
+let deltaY = 0;
+let targetDeltaX = 0;
+let targetDeltaY = 0;
 const step = 0.5;
 
 const colorOptions = [

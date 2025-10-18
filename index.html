@@ -9,36 +9,29 @@
 </head>
 
 <body>
-    <canvas id="starCanvas"></canvas>
+    <!--[if lt IE 9]>
+        <i>You're using an old browser, this might not render correctly...</i>
+        <script src="/fixpngie.js"></script>
+    <![endif]-->
+    <canvas id="starCanvas" role="presentation"></canvas>
     <script src="stars.js"></script>
     <div id="main-content">
-        <div class="topbar-area">
-            <img class="topbar-img" src="topbar.jpg"></img>
-            <div class="top-cutout">
-                <div class="top-cutout-content">
-                    <img src="img/homepage_tab.png"></img>
-                    <img src="img/gif/star1.gif">
-                    <img src="img/gif/star2.gif">
-                    <img src="img/gif/star1.gif">
-                </div>
-            </div>
-        </div>
+        <header class="topbar-area">
+            <img class="topbar-img" src="topbar.png" alt="Topbar with an emblem of a wolf and the text 'ByteyWolf's Online Den'"></img>
+            <div class="leftbar-ext"></div>    
+        </header>
         <div class="leftbar">
-            <img src="img/contents.png" alt="Text in VGA font that reads: Contents" class="contents-text">
-            <a href="index.html"><img src="img/categories/homepage.png" class="category-img"></a>
-            <a href="projects.html"><img src="img/categories/projects.png" class="category-img"></a>
+            <img src="img/contents.png" alt="Contents" class="contents-text">
+            <a href="index.html"><img src="img/categories/homepage.png" class="category-img" alt="Homepage"></a>
+            <a href="projects.html"><img src="img/categories/projects.png" class="category-img" alt="Projects"></a>
         </div>
         
         <div class="page">
-            <div class="column1">
-                <div class="box">
-                    <p class="box-title-small">About me</p>
-                    <p>i'm ByteyWolf, or simply known as Bytey :3.</p>
-                </div>
-                <div class="box">
-                    <p class="box-title-small">more tests</p>
-                    <p>these two columns should be separate and not interfere with each other.<br>todo:<ul><li>preferably improve the style of the website and borders to be more detailed</li></ul></p>
-                </div>
+            <div class="top-cutout">
+                    <img src="img/homepage_tab.png" alt="Welcome to my homepage!"></img>
+                    <img src="img/gif/star1.gif" alt="">
+                    <img src="img/gif/star2.gif" alt="">
+                    <img src="img/gif/star1.gif" alt="">
             </div>
             <div class="column2">
                 <div class="box">
@@ -49,7 +42,17 @@
                     <p class="box-title-small">test</p>
                     <p>this is a second column?</p>
                 </div>
-            </div>            
+            </div>           
+            <div class="column1">
+                <div class="box">
+                    <p class="box-title-small">About me</p>
+                    <p>i'm ByteyWolf, or simply known as Bytey :3.</p>
+                </div>
+                <div class="box">
+                    <p class="box-title-small">more tests</p>
+                    <p>these two columns should be separate and not interfere with each other.<br>todo:<ul><li>preferably improve the style of the website and borders to be more detailed</li></ul></p>
+                </div>
+            </div> 
         </div>
     </div>
 </body>

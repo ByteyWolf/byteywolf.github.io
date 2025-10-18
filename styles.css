@@ -1,127 +1,181 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    line-height: 1.3;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* MY STYLING */
+
 * {
-    box-sizing: border-box;
     color: #ffffff;
 }
 
-html,
+img {
+    image-rendering: pixelated;
+}
+
 body {
     height: 100%;
     margin: 0;
     font-family: monospace;
     background-color: black;
-    background-image: url('img/stars.jpg');
-    /* fallback */
+    background-image: url('img/stars.jpg'); /* fallback for js background */
+    font-size: 12px;
+    font-size: calc(min(1vh, 0.8vw) * 1.5);
+    z-index: 0;
 }
 
 #starCanvas {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: block;
     pointer-events: none;
 }
 
 #main-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    margin: 5% auto;
     width: 800px;
+    width: min(100vh, 80vw);
     background: #000000;
+    background-image: none;
     box-shadow: 0 0 20px #005500;
     
     overflow: hidden;
 }
 
 .topbar-img {
-    width: 100%;
-    height: auto;
-}
-
-.topbar {
     position: relative;
     width: 100%;
-    margin-bottom: 6px;
+    z-index: 2;
 }
 
 .topbar-area {
     position: relative;
+    overflow: hidden;
+}
+
+.leftbar-ext {
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    left: 0;
+    background-color: #080808;
+    border-right: 1px #040404 solid;
+    z-index: 1;
 }
 
 .leftbar {
-    float: left;
     width: 20%;
-    padding: 5px 15px;
-    padding: min(1vh, 5px) min(2vw, 15px);
-    
-    height: auto;
+    background-color: #080808;
+    border-right: 1px #040404 solid;
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 .page {
     position: relative;
-    margin-left: 20%;
+    z-index: 99;
+    width: 68%;
+    float: right;
+
+    margin-top: -6em;
+
     padding: 2% 5%;
-    text-align: left;
-    height: auto;
-    white-space: nowrap;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .top-cutout {
-    position: absolute;
-    bottom: 15%;
-    right: 0;
-    margin-bottom: 0;
-    margin-right: 0;
+    height: 2em;
+    zoom: 1;
     text-align: right;
-
-    width: 80%;
-    height: 0;
-    padding-bottom: 3.5%;
-    box-sizing: border-box;
+    margin-bottom: 3.5%;
 }
 
-.top-cutout-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.top-cutout-content > img {
-    display: inline-block;
-    height: 80%;
-    width: auto;
+.top-cutout img {
+    display: inline;
+    vertical-align: top;
+    height: 2em;
+    zoom: 1;
     margin-right: 2%;
 }
 
 
 .contents-text {
     display: block;
-    max-width: 100%;
-    height: auto;
-    image-rendering: pixelated;
+    width: 70%;
+    margin: 0 15%;
+    margin-bottom: 3%;
+    zoom: 1;
 }
-
-.contents-text {margin-bottom: 3%;}
 
 .category-img {
     margin-top: 3px;
+    width: 90%;
+    margin: 0 5%;
+    zoom: 1;
+
+    margin-bottom: 0.1em;
     margin-top: min(3%, 3px);
-    width: 110%;
-    height: auto;
-    image-rendering: pixelated;
 }
 
 .column1 {
-    display: inline-block;
+    float: right;
     vertical-align: top;
-    width: 60%;
+    width: 58%;
+    margin-right: 2%;
 }
 .column2 {
-    display: inline-block;
+    float: right;
     vertical-align: top;
     width: 40%;
 }
@@ -131,8 +185,7 @@ body {
     background: #111;
     color: #0f0;
     border: 1px solid #050;
-    padding: 0 1em;
-    padding-top: 1em;
+    padding: 1.5em 1em;
     min-height: 5vh;
     word-wrap: break-word; 
     overflow-wrap: break-word;
@@ -142,7 +195,7 @@ body {
 
 .box-title-small {
     position: absolute;
-    top: -1.5em;
+    top: -0.5em;
     left: 0.5em;
     padding: 0 2em;
     background-color: #111;
