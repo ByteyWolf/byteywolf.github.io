@@ -5,33 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ByteyWolf</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
     <!--[if lt IE 9]>
         <i>You're using an old browser, this might not render correctly...</i>
-        <script src="/fixpngie.js"></script>
+        <link rel="stylesheet" href="/fallbacks/ie.css">
     <![endif]-->
     <canvas id="starCanvas" role="presentation"></canvas>
-    <script src="stars.js"></script>
+    <script src="/stars.js"></script>
     <div id="main-content">
+        <div class="leftbar-ext"></div>  
         <header class="topbar-area">
-            <img class="topbar-img" src="topbar.png" alt="Topbar with an emblem of a wolf and the text 'ByteyWolf's Online Den'"></img>
-            <div class="leftbar-ext"></div>    
+            <img class="topbar-img" src="/topbar.png" alt="Topbar with an emblem of a wolf and the text 'ByteyWolf's Online Den'"></img>
+            <img class="topbar-img-pda" src="/topbar-pda.png" alt="Topbar with an emblem of a wolf and the text 'ByteyWolf's Online Den'"></img>
         </header>
         <div class="leftbar">
             <img src="img/contents.png" alt="Contents" class="contents-text">
-            <a href="index.html"><img src="img/categories/homepage.png" class="category-img" alt="Homepage"></a>
-            <a href="projects.html"><img src="img/categories/projects.png" class="category-img" alt="Projects"></a>
+            <a href="index.html"><img src="/img/categories/homepage.png" class="category-img" alt="Homepage"></a>
+            <a href="projects.html"><img src="/img/categories/projects.png" class="category-img" alt="Projects"></a>
         </div>
         
         <div class="page">
             <div class="top-cutout">
-                    <img src="img/homepage_tab.png" alt="Welcome to my homepage!"></img>
-                    <img src="img/gif/star1.gif" alt="">
-                    <img src="img/gif/star2.gif" alt="">
-                    <img src="img/gif/star1.gif" alt="">
+                <img src="/img/homepage_tab.png" alt="Welcome to my homepage!"></img>
+                <img src="/img/gif/star1.gif" alt="">
+                <img src="/img/gif/star2.gif" alt="">
+                <img src="/img/gif/star1.gif" alt="">
+            </div>
+            <div class="column1">
+                <div class="box">
+                    <p class="box-title-small">About me</p>
+                    <p>i'm ByteyWolf, or simply known as Bytey :3.<br><br>i'm still designing this website, that's why it feels so very bare and poorly designed right now <img src="/img/gif/frown.gif">. also, i'm currently focused on making it work everywhere, which slows things down! did you know this website fully works on Internet Explorer 6?</p>
+                </div>
+                <div class="box">
+                    <p class="box-title-small">more tests</p>
+                    <p>these two columns should be separate and not interfere with each other.<br>todo:<ul><li>preferably improve the style of the website and borders to be more detailed</li></ul></p>
+                </div>
             </div>
             <div class="column2">
                 <div class="box">
@@ -41,16 +52,6 @@
                 <div class="box">
                     <p class="box-title-small">test</p>
                     <p>this is a second column?</p>
-                </div>
-            </div>           
-            <div class="column1">
-                <div class="box">
-                    <p class="box-title-small">About me</p>
-                    <p>i'm ByteyWolf, or simply known as Bytey :3.</p>
-                </div>
-                <div class="box">
-                    <p class="box-title-small">more tests</p>
-                    <p>these two columns should be separate and not interfere with each other.<br>todo:<ul><li>preferably improve the style of the website and borders to be more detailed</li></ul></p>
                 </div>
             </div> 
         </div>

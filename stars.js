@@ -1,120 +1,85 @@
-let previousMousePosition = { x: 0, y: 0 };
-let deltaX = 0;
-let deltaY = 0;
-let targetDeltaX = 0;
-let targetDeltaY = 0;
-const step = 0.5;
+var prevMouse = {x: 0, y: 0}, dX = 0, dY = 0, tDX = 0, tDY = 0, step = 0.5;
+var colors = ["255,255,255", "255,200,200", "200,200,255"];
+var canvas = document.getElementById('starCanvas'), ctx = canvas.getContext('2d');
+var stars = [], numStars = 1000;
 
-const colorOptions = [
-    "255, 255, 255", // white
-    "255, 200, 200",     // red
-    "200, 200, 255"      // blue
-];
-document.addEventListener('mousemove', (event) => {
-    if (previousMousePosition.x === 0 && previousMousePosition.y === 0) {
-        previousMousePosition = { x: event.clientX, y: event.clientY };
+window.requestAnimationFrame = window.requestAnimationFrame || function(cb) {
+    return window.setTimeout(cb, 16);
+};
+
+document.body.style.backgroundImage = "none";
+canvas.width = window.innerWidth - 4;
+canvas.height = window.innerHeight - 4;
+
+document.onmousemove = function(e) {
+    e = e || window.event;
+    if (!prevMouse.x && !prevMouse.y) {
+        prevMouse = {x: e.clientX, y: e.clientY};
         return;
     }
-    targetDeltaX = event.clientX - previousMousePosition.x;
-    targetDeltaY = event.clientY - previousMousePosition.y;
-    previousMousePosition = { x: event.clientX, y: event.clientY };
-});
+    tDX = e.clientX - prevMouse.x;
+    tDY = e.clientY - prevMouse.y;
+    prevMouse = {x: e.clientX, y: e.clientY};
+};
 
-
-// sloppily assembled with lots of guessing and chatgpt
-const canvas = document.getElementById('starCanvas');
-const ctx = canvas.getContext('2d');
-document.body.style.backgroundImage = "none";
-
-canvas.width = window.innerWidth-4;
-canvas.height = window.innerHeight-4;
-
-const stars = [];
-const numStars = 1000;
-
-function Star(x, y, radius, opacity, fadeSpeed, shootingStar) {
-this.x = x;
-this.y = y;
-this.radius = radius;
-this.opacity = opacity;
-this.fadeSpeed = fadeSpeed;
-this.fadingIn = true;
-this.shootingStar = shootingStar;
-
-this.colorTemplate = colorOptions[Math.floor(Math.random() * colorOptions.length)];
+function Star(x, y, r, o, fs, ss) {
+    this.x = x; this.y = y; this.radius = r; this.opacity = o;
+    this.fadeSpeed = fs; this.fadingIn = true; this.shootingStar = ss;
+    this.color = colors[Math.floor(Math.random() * colors.length)];
 }
 
 function createStars() {
-for (let i = 0; i < numStars; i++) {
-    let shootingStar = false;
-    if (Math.random() <= 0.01) {
-        shootingStar = true;
+    for (var i = 0; i < numStars; i++) {
+        var ss = Math.random() <= 0.01;
+        stars.push(new Star(
+            Math.random() * canvas.width,
+            Math.random() * canvas.height,
+            Math.random() * 2 + 0.5,
+            Math.random() / 2,
+            Math.random() * 0.005 + 0.005,
+            ss
+        ));
     }
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height;
-    const radius = Math.random() * 2 + 0.5;
-    const opacity = Math.random() / 2;
-    const fadeSpeed = Math.random() * 0.005 + 0.005;
-    stars.push(new Star(x, y, radius, opacity, fadeSpeed, shootingStar));
-}
 }
 
 function drawStars() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    stars.forEach(star => {
-        if (star.fadingIn) {
-        star.opacity += star.fadeSpeed;
-        if (star.opacity >= 1) star.fadingIn = false;
-        } else {
-        star.opacity -= star.fadeSpeed;
-        if (star.opacity <= 0) {
-            star.fadingIn = true;
-            star.x = Math.random() * canvas.width;
-            star.y = Math.random() * canvas.height;
+    for (var i = 0; i < stars.length; i++) {
+        var s = stars[i];
+        s.opacity += s.fadingIn ? s.fadeSpeed : -s.fadeSpeed;
+        if (s.opacity >= 1) s.fadingIn = false;
+        if (s.opacity <= 0) {
+            s.fadingIn = true;
+            s.x = Math.random() * canvas.width;
+            s.y = Math.random() * canvas.height;
         }
-        
-        }
-        star.x -= deltaX / 10;
-        star.y -= deltaY / 10;
-        if (star.shootingStar) {
-            star.x += 5;
-            star.y += 2;
-        }
-        star.x = star.x % canvas.width;
-        star.y = star.y % canvas.height;
-        ctx.fillStyle = `rgba(${star.colorTemplate}, ${star.opacity})`;
-        ctx.fillRect(star.x, star.y, star.radius, star.radius);
-
-    });
-
+        s.x = (s.x - dX / 10 + (s.shootingStar ? 5 : 0)) % canvas.width;
+        s.y = (s.y - dY / 10 + (s.shootingStar ? 2 : 0)) % canvas.height;
+        ctx.fillStyle = "rgba(" + s.color + "," + s.opacity + ")";
+        ctx.fillRect(s.x, s.y, s.radius, s.radius);
+    }
     requestAnimationFrame(drawStars);
 }
 
-
-window.addEventListener('resize', () => {
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-stars.length = 0;
-createStars();
-});
-
-createStars();
-drawStars();
-function approach(value, target, step) {
-    if (Math.abs(value - target) <= step) {
-        return target;
-    }
-    return value + Math.sign(target - value) * step;
+function approach(v, t, st) {
+    return Math.abs(v - t) <= st ? t : v + (t > v ? st : -st);
 }
 
 function updateDeltas() {
-    targetDeltaX = approach(targetDeltaX, 0, step/2)
-    targetDeltaY = approach(targetDeltaY, 0, step/2)
-    deltaX = approach(deltaX, targetDeltaX, step);
-    deltaY = approach(deltaY, targetDeltaY, step);
-
+    tDX = approach(tDX, 0, step / 2);
+    tDY = approach(tDY, 0, step / 2);
+    dX = approach(dX, tDX, step);
+    dY = approach(dY, tDY, step);
     requestAnimationFrame(updateDeltas);
 }
 
+window.onresize = function() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = [];
+    createStars();
+};
+
+createStars();
+drawStars();
 updateDeltas();

@@ -52,7 +52,7 @@ table {
 }
 
 img {
-    image-rendering: pixelated;
+    image-rendering: crisp-edges;
 }
 
 body {
@@ -87,34 +87,40 @@ body {
     overflow: hidden;
 }
 
-.topbar-img {
+.topbar-img, .topbar-img-wap, .topbar-img-pda {
     position: relative;
     width: 100%;
     z-index: 2;
+}
+.topbar-img-wap, .topbar-img-pda {
+    display: none;
 }
 
 .topbar-area {
     position: relative;
     overflow: hidden;
+    z-index: 3;
 }
 
 .leftbar-ext {
     position: absolute;
     width: 20%;
-    height: 100%;
+    height: 10000px;
     margin: 0;
     padding: 0;
     top: 0;
     left: 0;
     background-color: #080808;
-    border-right: 1px #040404 solid;
-    z-index: 1;
+    border-right: 0.3em #050505 solid;
+    z-index: 0;
 }
 
 .leftbar {
+    position: relative;
+    z-index: 2;
     width: 20%;
     background-color: #080808;
-    border-right: 1px #040404 solid;
+    border-right: 0.3em #050505 solid;
     float: left;
     margin: 0;
     padding: 0;
@@ -144,7 +150,7 @@ body {
 .top-cutout img {
     display: inline;
     vertical-align: top;
-    height: 2em;
+    height: 1.4em;
     zoom: 1;
     margin-right: 2%;
 }
@@ -152,30 +158,29 @@ body {
 
 .contents-text {
     display: block;
-    width: 70%;
-    margin: 0 15%;
-    margin-bottom: 3%;
+    width: 60%;
+    margin: 0 20%;
+    padding-bottom: 1.5em;
     zoom: 1;
 }
 
 .category-img {
-    margin-top: 3px;
-    width: 90%;
-    margin: 0 5%;
+    width: 70%;
+    margin: 0 15%;
     zoom: 1;
 
-    margin-bottom: 0.1em;
-    margin-top: min(3%, 3px);
+    margin-top: 0.3em;
+    margin-top: min(3%, 6px);
 }
 
 .column1 {
-    float: right;
+    float: left;
     vertical-align: top;
     width: 58%;
     margin-right: 2%;
 }
 .column2 {
-    float: right;
+    float: left;
     vertical-align: top;
     width: 40%;
 }
@@ -194,11 +199,66 @@ body {
 }
 
 .box-title-small {
+    font-family: sans-serif;
+    color: #0f0;
     position: absolute;
     top: -0.5em;
     left: 0.5em;
     padding: 0 2em;
-    background-color: #111;
+    background-color: #070707;
     font-size: larger;
     font-weight: bold;
+    border-top: 1px solid #050;
+}
+
+.box img {
+    height: 2em;
+    width: auto;
+    vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+    .topbar-img {
+        display: none;
+    }
+    .topbar-img-pda {
+        display: block;
+    }
+    body {
+        background-image: none;
+    }
+    .box {
+        font-size: calc(min(1vh, 0.8vw) * 5)
+    }
+    #main-content {
+        width: 100%;
+        margin: 1em;
+    }
+    #starCanvas, .top-cutout, .leftbar-ext, .contents-text {
+        display: none;
+    }
+    .leftbar {
+        margin-top: 2em;
+        width: 100vw;
+        float: none;
+        display: flex; /* i think anything that supports media queries can also do flexbox to some extent */
+        justify-content: left;
+    }
+    .page {
+        float: none;
+        width: 90vw;
+        padding-top: 5em;
+    }
+    .category-img {
+        width: auto;
+        height: 3em;
+        padding: 0;
+        margin: 0;
+        padding-right: 1.5em;
+        border-right: 2px solid #005500;
+        margin-left: 1.5em;
+    }
+    .page {
+        margin-top: 0;
+    }
 }
