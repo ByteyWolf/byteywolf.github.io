@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Carigy</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <!--[if lt IE 9]>
+        <i>You're using an old browser, this might not render correctly...</i>
+        <link rel="stylesheet" href="/fallbacks/ie.css">
+    <![endif]-->
+    <canvas id="starCanvas" role="presentation"></canvas>
+    <script src="/stars.js"></script>
+    <div id="main-content">
+        <img src="/img/triangle1.gif" class="triangle triangle-left">
+        <img src="/img/triangle2.gif" class="triangle triangle-right">
+        <div class="actual-main-content">
+            <p class="mobile-warning">You're on mobile! This website looks best on a PC.</p>
+            <div class="leftbar-ext"></div>  
+            <header class="topbar-area">
+                <img class="topbar-img" src="/topbar.png" alt="Topbar with an emblem of a wolf and the text 'ByteyWolf's Online Den'"></img>
+                <img class="topbar-img-pda" src="/topbar-pda.png" alt="Topbar with an emblem of a wolf and the text 'ByteyWolf's Online Den'"></img>
+            </header>
+            <div class="leftbar">
+                <img src="/img/contents.png" alt="Contents" class="contents-text">
+                <img src="/img/gif/greenbar2.gif" class="category-img greenbar">
+                <a href="/index.html"><img src="/img/categories/homepage.png" class="category-img" alt="Homepage"></a>
+                <a href="/projects.html"><img src="/img/categories/projects.png" class="category-img" alt="Projects"></a>
+                <a href="https://github.com/ByteyWolf"><img src="/img/categories/github.png" class="category-img" alt="GitHub"></a>
+                <a href="https://www.last.fm/user/vopwn55"><img src="/img/categories/lastfm.png" class="category-img" alt="Last.fm"></a>
+                <img src="/img/gif/greenbar2.gif" class="category-img greenbar">
+                <a href="/extras.html"><img src="/img/categories/extras.png" class="category-img" alt="Extras"><img src="/img/gif/excl1.gif" alt=""></a>
+            </div>
+            
+            <div class="page page-markdown">
+                <div class="top-cutout">
+                    <h1>The Carigy</h1>
+                </div>
+                <h2>Photos</h2>
+                <div class="project-screenshots">
+                    <img src="/img/projects/carigy.jpg" alt="Picture of a small RC car with several cardboard boxes glued onto it">
+                    <img src="/img/projects/carigy2.jpg" alt="Side profile view of the Carigy RC car">
+                    <img src="/img/projects/carigy3.jpg" alt="Carigy being controlled via Bluetooth from a phone">
+                </div>
+                <h2>Links</h2>
+                <a href="https://github.com/ByteyWolf/the-carigy">Prototype J2ME internet comms app</a>
+                <h2 class="markdown-h1">Preface</h2>
+                <p>I like exploring new places. However, sometimes it's not safe for me to enter them, or I don't know if there's anything interesting on the other side. If only there was a little robot I could send to scout the location for me...</p>
+                <h2 class="markdown-h1">Description</h2>
+                <p>The Carigy (combination of Car and Prodigy) is a small cheap Chinese RC car I am actively modifying to be controlled over Internet. I try to avoid buying specific parts and only use what I have readily available, therefore it looks very hacky... The hardware stack is a $5 RC car, a $5 ESP32 and a free powerbank glued onto it. A missing component is an old phone for camera and cell services, but I don't have an app ready yet.</p>
+                <h2 class="markdown-h1">How it works</h2>
+                <ul style="list-style-type: square;">
+                    <li>The car is controlled via its normal remote, but...</li>
+                    <li>An ESP32 is attached to this remote, and can programmatically press buttons with optocouplers</li>
+                    <li>The ESP32 receives commands from an old phone via Bluetooth, which in turn uses 2G/3G communication to get commands from the server and send a camera feed back.</li>
+                </ul>
+                <hr>
+                <p>Is it the best way to do this? Probably not. But I'm doing it anyway because it's fun!</p>
+            </div>
+        </div>
+        <img src="/img/snout.gif" class="snout">
+    </div>
+</body>
+
+</html>

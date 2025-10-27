@@ -51,6 +51,10 @@ table {
     color: #ffffff;
 }
 
+hr {
+    color: #00ff00;
+}
+
 img {
     image-rendering: crisp-edges;
 }
@@ -61,7 +65,8 @@ body {
     font-family: monospace;
     background-color: black;
     background-image: url('img/stars.jpg'); /* fallback for js background */
-    font-size: 12px;
+    font-size: 11px;
+    word-wrap: break-word;
     font-size: calc(min(1vh, 0.9vw) * 1.5);
     z-index: 0;
 }
@@ -77,8 +82,8 @@ body {
 
 #main-content {
     position: relative;
-    margin: 10em auto;
-    width: 800px;
+    margin: 8em auto;
+    width: 640px;
     width: min(100vh, 90vw);
     background: #000000;
     background-image: none;
@@ -182,6 +187,14 @@ body {
     margin-right: 2%;
 }
 
+.top-cutout h1 {
+    display: inline;
+    font-size: 2em;
+    font-weight: bold;
+    margin-right: 1em;
+    vertical-align: top;
+}
+
 
 .contents-text {
     display: block;
@@ -252,23 +265,39 @@ body {
 
 .project-container {
     width: 100%;
-    height: 5em;
+    position: relative;
+
     /*background-color: #0F0F0F;
     border: 2px solid #002200;*/
     zoom: 1;
     display: block;
+    clear: both;
+    padding: 1em 0;
+    border-bottom: 1px solid #002200;
+    zoom: 1;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    /*cursor: default;*/
 }
 
-.project-container div {
+.project-container:hover {
+    text-decoration: underline;
+    /*cursor: pointer;*/
+}
+
+
+.project-container-n div img {
     height: 5em;
-    margin: 0.5em 0;
-}
-.project-container div img {
-    height: 100%;
     width: auto;
-    margin: 0 1em;
+    margin-right: 1em;
 }
-.project-container div h1 {
+.project-container-u div img {
+    height: 5em;
+    width: auto;
+    margin-left: 1em;
+}
+.project-container span h1 {
     font-size: 1.5em;
     font-weight: bold;
 }
@@ -281,8 +310,53 @@ body {
     text-align: right;
 }
 
+.progress-label {
+    position: absolute;
+    top: 0.5em;
+    left: 0;
+    border-radius: 0.5em;
+    background-color: #005500;
+    font-size: 0.7em;
+}
+
+.project-container-u .progress-label {
+    left: auto;
+    right: 0;
+}
+
 .mobile-warning {
     display: none;
+}
+
+.page-markdown h1, .page-markdown h2, .page-markdown h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid #005500;
+    width: fit-content;
+    margin-bottom: 1em;
+}
+
+.project-screenshots {
+    height: 10em;
+    margin: 1em 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.project-screenshots img {
+    height: 100%;
+    zoom: 1;
+    display: inline-block;
+    margin-right: 1em;
+    vertical-align: middle;
+}
+
+
+
+.markdown-h1 {
+    margin-top: 2em;
 }
 
 @media (max-width: 768px) {
