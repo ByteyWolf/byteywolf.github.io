@@ -172,6 +172,7 @@ body {
     margin: 0;
     padding: 0;
     text-align: center;
+    padding-bottom: 2em;
 }
 
 .page {
@@ -315,7 +316,7 @@ body {
     width: auto;
     margin-left: 1em;
 }
-.project-container span h1 {
+.project-container span h2 {
     font-size: 1.5em;
     font-weight: bold;
 }
@@ -371,7 +372,7 @@ body {
     vertical-align: middle;
 }
 
-.ice-breaker img {
+.ice-breaker img, b img {
     height: 1em;
 }
 
@@ -381,6 +382,10 @@ body {
 
 .ice-breaker .fursona {
     width: 50%; height: auto; zoom: 1; float: right;
+}
+
+.nohighlight:hover {
+    text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -450,5 +455,9 @@ body {
     }
     .box-title-small {
         padding: 0 1em;
+    }
+    .column1, .column2 {
+        float: none;
+        width: 100%;
     }
 }

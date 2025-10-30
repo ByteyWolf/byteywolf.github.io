@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroStudio Projects</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <!--[if lt IE 9]>
+        <i>You're using an old browser, this might not render correctly...</i>
+        <link rel="stylesheet" href="/fallbacks/ie.css">
+    <![endif]-->
+    <canvas id="starCanvas" role="presentation"></canvas>
+    <script src="/stars.js"></script>
+    <div id="main-content">
+        <img src="/img/triangle1.gif" class="triangle triangle-left">
+        <img src="/img/triangle2.gif" class="triangle triangle-right">
+        <div class="actual-main-content">
+            <p class="mobile-warning">You're on mobile! This website looks best on a PC.</p>
+            <div class="leftbar-ext"></div>  
+            <header class="topbar-area">
+                <img class="topbar-img" src="/topbar.png" alt="Topbar with an emblem of a wolf and the text 'ByteyWolf's Online Den'"></img>
+                <img class="topbar-img-pda" src="/topbar-pda.png" alt="Topbar with an emblem of a wolf and the text 'ByteyWolf's Online Den'"></img>
+            </header>
+            <div class="leftbar">
+                <img src="/img/contents.png" alt="Contents" class="contents-text">
+                <img src="/img/gif/greenbar2.gif" class="category-img greenbar">
+                <a href="/index.html"><img src="/img/categories/homepage.png" class="category-img" alt="Homepage"></a>
+                <a href="/projects.html"><img src="/img/categories/projects.png" class="category-img" alt="Projects"></a>
+                <a href="/links.html"><img src="/img/categories/links.png" class="category-img" alt="Links"></a>
+                <a href="/blog.html"><img src="/img/categories/blog.png" class="category-img" alt="Blog"></a>
+                <a href="https://github.com/ByteyWolf"><img src="/img/categories/github.png" class="category-img" alt="GitHub"></a>
+                <a href="https://www.last.fm/user/vopwn55"><img src="/img/categories/lastfm.png" class="category-img" alt="Last.fm"></a>
+                <img src="/img/gif/greenbar2.gif" class="category-img greenbar">
+                <a href="/extras.html"><img src="/img/categories/extras.png" class="category-img" alt="Extras"><img src="/img/gif/excl1.gif" alt=""></a>
+            </div>
+            
+            <div class="page page-markdown">
+                <div class="top-cutout">
+                    <h1>RetroStudio Projects</h1>
+                </div>
+                <h2 class="markdown-h1">Preface</h2>
+                <p><a href="https://www.roblox.com/games/5846386835/RetroStudio">RetroStudio</a> is a Roblox game which tries to simulate ROBLOX from an older period (2009-2015). What particularly fascinates me about this game is its Editor option, which tries to imitate Roblox Studio. You can build entire games in it, and also write scripts in its proprietary Visual Blocks scripting engine. I used this to my advantage, as well as the simplicity of older ROBLOX, to create not only in-game systems (skyscrapers, elevators, etc), but also tooling for the editor itself.
+                <br><br>For the sake of simplicity I will avoid creating dedicated project pages for small or insignificant projects, and instead simply list them here.<br><br>
+            If you're in the know, you can check out threads for all of these projects in the community server.</p>
+                <h2 class="markdown-h1">Projects</h2>
+                <a class="project-container project-container-n" href="/projects/almostlua.html">
+                    <div><img src="/img/projects/almostLua_promo_2.png" alt="Interface of the almostLua plugin and IDE"></div>
+                    <span><b>almostLua</b>
+                        <p>(somewhat of a) Lua to Visual Blocks compiler</p>
+                    </span>
+                </a>
+                <a class="project-container project-container-n nohighlight">
+                    <div><img src="/img/projects/retroengine_1.png" alt="Far-away shot of several elevators at a testing facility"></div>
+                    <span><b>RetroEngine v6</b>
+                        <p>It's an elevator system! Features advanced call queue handling, manual/auto modes, control panels, diverse settings, destination dispatch, triangle keys, and so much more. You can find a demo on my RetroStudio profile.</p>
+                    </span>
+                </a>
+                <a class="project-container project-container-n nohighlight">
+                    <div><img src="/img/projects/easystatkit.png" alt="Screeshot of EasyStatKit showing various data for Session 1"></div>
+                    <span><b>EasyStatKit</b>
+                        <p>Unfinished statistics kit: At its latest version, it can record player engagement, playtime, total visit count, server heartbeat, build graphs and create reports.</p>
+                    </span>
+                </a>
+                <a class="project-container project-container-n nohighlight">
+                    <div><img src="/img/projects/retromegaplaza.png" alt="Picture of a skyscraper surrounded by a city"></div>
+                    <span><b>Retro Mega Plaza</b>
+                        <p>A demo 42-floor skyscraper building (and other less-detailed buildings that form a city). Demoes the various features of my elevator system. You can find it on my RetroStudio profile.</p>
+                    </span>
+                </a>
+                <a class="project-container project-container-n nohighlight">
+                    <div><img src="/img/projects/retroidian.png" alt="Picture of a skyscraper surrounded by a city"></div>
+                    <span><b>Retroidian Hotel</b>
+                        <p>A similar 60-floor hotel skyscraper, used for demoing elevators, but also is its own standalone game (you can get rooms, buy items, drive boats, explore the city, etc.) You can find it on my RetroStudio profile.</p>
+                    </span>
+                </a>
+                <a class="project-container project-container-n nohighlight">
+                    <div><img src="/img/projects/prodigy.png" alt="Picture of Prodigy running a script that prints out 'Hello Prodigy!'"></div>
+                    <span><b>Prodigy</b>
+                        <p>Unfinished Lua parser that can interpret, compile and execute Lua code entirely in RetroStudio, without using any external programs. It was also more accurate than almostLua, but significantly slower, which is why development was stopped. Supports variables, functions, recursion, tables, tuples, upvalues, and some globals. You can find a demo on my RetroStudio profile.</p>
+                    </span>
+                </a>
+                <a class="project-container project-container-n nohighlight">
+                    <div><img src="/img/projects/modelimporter2.png" alt="Picture of a treehouse and brick house imported with Model Importer 2"></div>
+                    <span><b>Model Importer 2</b>
+                        <p>Unfinished model importer to replace my old one. It can import gigantic models from Roblox Studio into RetroStudio with a 100% success rate and an almost 800% smaller serialized string than other importers. However, due to complications with some extra features, I still haven't released it yet.</p>
+                    </span>
+                </a>
+                <br><br>
+                <p>Maybe I'll list more here (I have dozens) but currently too lazy ...</p>
+            </div>
+        </div>
+        <img src="/img/snout.gif" class="snout">
+    </div>
+</body>
+
+</html>
