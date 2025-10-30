@@ -308,12 +308,12 @@ body {
 
 .project-container-n div img {
     height: 5em;
-    width: auto;
+    zoom: 1;
     margin-right: 1em;
 }
 .project-container-u div img {
     height: 5em;
-    width: auto;
+    zoom: 1;
     margin-left: 1em;
 }
 .project-container span h2 {
