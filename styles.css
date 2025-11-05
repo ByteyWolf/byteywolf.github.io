@@ -281,7 +281,7 @@ body {
 
 .box img {
     height: 1.5em;
-    width: auto;
+    zoom: 1;
     vertical-align: middle;
 }
 
