@@ -100,7 +100,7 @@ body {
     margin: 8em auto;
     width: min(100vh, 90vw);
     background: #000000;
-    background-image: none;
+    background-image: url("/img/bg_page.png");
     border: 2px solid #005500;
     zoom: 1;
     /*box-shadow: 0 0 20px #005500;*/
@@ -261,6 +261,9 @@ body {
     overflow-wrap: break-word;
     white-space: normal;
     margin-bottom: 2em;
+
+    background-image: url("/img/bg_block.png");
+    background-size: cover;
 }
 
 .box-title-small {
