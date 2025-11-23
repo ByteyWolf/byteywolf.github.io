@@ -98,7 +98,7 @@ body {
     position: relative;
     width: 640px;
     margin: 8em auto;
-    width: min(100vh, 90vw);
+    width: 66.66em;
     background: #000000;
     background-image: url("/img/bg_page.png");
     border: 2px solid #005500;
