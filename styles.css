@@ -81,7 +81,7 @@ body {
     background-image: url('img/stars.jpg'); /* fallback for js background */
     font-size: 11px;
     word-wrap: break-word;
-    font-size: 1rem;
+    font-size: 0.9rem;
     z-index: 0;
 }
 
