@@ -435,20 +435,20 @@ body {
     .leftbar {
         margin: 0;
         padding: 0;
-        margin-top: 2em;
+        margin-top: 1.2em;
         width: 100vw;
         float: none;
     }
     .page {
         float: none;
         width: 90vw;
-        padding-top: 3em;
+        padding-top: 2em;
         margin-top: 0;
         font-size: 2.5em;
     }
     .category-img {
         display: inline-block;
-        width: 28vw;
+        width: 27.5vw;
         height: auto;
         padding: 0;
         margin: 0;
@@ -456,12 +456,12 @@ body {
         border-right: 2px solid #005500;
         margin-left: 2vw;
     }
-    .mobile-warning {
+    /*.mobile-warning {
         display: block;
         width: 100%;
         background-color: #005500;
-        font-size: 2em;
-    }
+        font-size: 1em;
+    }*/
     .greenbar {
         display: none;
     }
