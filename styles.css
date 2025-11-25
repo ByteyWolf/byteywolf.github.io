@@ -81,7 +81,7 @@ body {
     background-image: url('img/stars.jpg'); /* fallback for js background */
     font-size: 11px;
     word-wrap: break-word;
-    font-size: calc(min(1vh, 0.9vw) * 1.5);
+    font-size: 1rem;
     z-index: 0;
 }
 
@@ -389,7 +389,7 @@ body {
 }
 
 .ice-breaker .fursona {
-    width: 50%; height: auto; zoom: 1; float: right;
+    width: 8em; zoom: 1; height: auto; float: right; background-color: #005500;
 }
 
 .nohighlight:hover {
@@ -414,7 +414,7 @@ body {
         background-image: none;
     }
     .box {
-        font-size: calc(min(1vh, 0.8vw) * 5)
+        font-size: calc(min(1vh, 0.8vw) * 5);
     }
     #main-content {
         width: 100%;
