@@ -441,7 +441,7 @@ body {
         cursor: pointer;
         font-weight: bold;
         color: #0f0;
-        font-size: 2em;
+        text-decoration: underline;
     }
 
 
