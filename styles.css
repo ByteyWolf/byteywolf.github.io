@@ -417,7 +417,34 @@ body {
     zoom: 1;
 }
 
+/* funny mobile menu switch */
+.menu-checkbox, .menu-label {
+    display: none;
+}
+
+.menu-content {
+    display: block;
+}
+
+
 @media (max-width: 768px) {
+    .menu-checkbox:checked + .menu-content {
+        display: block;
+    }
+
+    .menu-content {
+        display: none;
+    }
+
+    .menu-label {
+        display: block;
+        cursor: pointer;
+        font-weight: bold;
+        color: #0f0;
+        font-size: 2em;
+    }
+
+
     .topbar-img {
         display: none;
     }
@@ -461,14 +488,11 @@ body {
 
     }
     .category-img {
-        display: inline-block;
-        width: 27.5vw;
+        width: 60vw;
         height: auto;
-        padding: 0;
+        padding: 0 10vw;
         margin: 0;
-        padding-right: 2vw;
         border-right: 2px solid #005500;
-        margin-left: 2vw;
     }
     /*.mobile-warning {
         display: block;
