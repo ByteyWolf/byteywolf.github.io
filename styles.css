@@ -92,6 +92,7 @@ body {
     width: 100vw;
     height: 100vh;
     pointer-events: none;
+    filter: brightness(0.3);
 }
 
 #main-content {
@@ -103,7 +104,8 @@ body {
     background-image: url("/img/bg_page.png");
     border: 2px solid #005500;
     zoom: 1;
-    /*box-shadow: 0 0 20px #005500;*/
+
+    filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.4));
 }
 .actual-main-content {
     width: 100%;
@@ -138,6 +140,7 @@ body {
     position: relative;
     width: 100%;
     z-index: 2;
+    filter: drop-shadow(0 10px 10px rgba(0, 0, 0, 0.4));
 }
 .topbar-img-wap, .topbar-img-pda {
     display: none;
@@ -233,7 +236,7 @@ body {
 }
 
 .category-img:hover {
-    filter: brightness(1.5);
+    filter: brightness(0) invert(1);
 }
 
 
@@ -389,7 +392,7 @@ body {
 }
 
 .ice-breaker .fursona {
-    width: 8em; zoom: 1; height: auto; float: right; background-color: #005500;
+    width: 8em; height:8em; float: right; background-color: #005500;
 }
 
 .nohighlight:hover {
