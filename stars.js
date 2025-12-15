@@ -4,6 +4,9 @@ const BW = 100, BH = 150, WW = 6, WH = 8, WG = 3;
     const c = document.getElementById('starCanvas'), ctx = c.getContext('2d');
     if (!ctx) return;
 
+    const style = getComputedStyle(c);
+    if (style.display === 'none' || style.visibility === 'hidden') return;
+
     let stars = [];
     const STAR_DENSITY = 0.0003;
 
