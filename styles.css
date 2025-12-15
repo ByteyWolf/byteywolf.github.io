@@ -298,6 +298,11 @@ body {
     display: inline-block;
 }
 
+.project-working {
+    width: 48%;
+    display: inline-block;
+}
+
 .box img {
     height: 2em;
     zoom: 1;
@@ -500,6 +505,11 @@ body {
         background-color: #005500;
         font-size: 1em;
     }*/
+    .project-working {
+        width: 100%;
+        display: block;
+    }
+
     .greenbar {
         display: none;
     }
