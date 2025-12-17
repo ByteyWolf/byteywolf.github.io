@@ -47,9 +47,15 @@ const BW = 100, BH = 150, WW = 6, WH = 8, WG = 3;
         }
     }
 
-    function resize() { c.width = window.innerWidth; c.height = window.innerHeight; createStars(); }
+    let running = true;
+    let forceStop = false;
+    function resize() { c.width = window.innerWidth; c.height = window.innerHeight; running = true; createStars(); }
     resize();
     window.addEventListener('resize', resize);
+
+    c.addEventListener('click', () => {
+       forceStop = !forceStop;
+    });
 
     const off = document.createElement('canvas');
     off.width = 400;
@@ -87,91 +93,106 @@ const BW = 100, BH = 150, WW = 6, WH = 8, WG = 3;
 
     // todo: make this more or less consistent across devices
     function draw(time) {
-        ctx.filter = 'none';
-        ctx.fillStyle = '#000';
-        ctx.fillRect(0, 0, c.width, c.height);
-
-        drawStars();
-        //ctx.filter = 'blur(5px)';
-
-        const hz = c.height * HR;
-        const cx = c.width / 2;
-
-        const ground_gradient = ctx.createLinearGradient(0, c.height * HR, 0, c.height);
-        ground_gradient.addColorStop(0, '#000000');
-        ground_gradient.addColorStop(1, '#003300');
-
-        ctx.fillStyle = ground_gradient
-        ctx.fillRect(0, hz, c.width, hz);
-
         const aspectRatio = c.width / c.height;
-        const baseSpread = 50;
-        const spread = baseSpread * Math.max(1, aspectRatio * 0.8);
 
-        const dt = (time - lastTime) / 1000;
-        lastTime = time;
-        z1 += SP1 * dt * 60;
-        z2 += SP2 * dt * 60;
+        if (running) {
+            ctx.filter = 'none';
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, c.width, c.height);
 
-        let offsetX = (mouseX - cx) * 0.05;
-        let offsetY = (mouseY - hz) * 0.05;
+            drawStars();
+            //ctx.filter = 'blur(5px)';
 
-        const buildings1 = [];
-        for (let i = 0; i < L1; i++) {
-            const z = (i * Z1 + z1) % D;
-            buildings1.push({ i, z });
-        }
-        buildings1.sort((b, a) => b.z - a.z);
+            const hz = c.height * HR;
+            const cx = c.width / 2;
 
-        for (const b of buildings1) {
-            const s = D / (D - b.z);
-            const sy = hz + s * 100;
-            const bw = BW * s;
-            const bh = off.height * s * 1.1;
-            const idx = (b.i * 7) % bc;
-            const sx = idx * BW;
-            const side = spread * Math.pow(s, 1.5); 
-            const alpha = Math.pow(b.z / D, 0.2);
-            ctx.globalAlpha = alpha;
-            ctx.drawImage(off, sx, 0, BW, off.height, cx - side - bw + offsetX, sy - bh + offsetY, bw, bh);
-            ctx.drawImage(off, sx, 0, BW, off.height, cx + side + offsetX, sy - bh + offsetY, bw, bh);
-        }
+            const ground_gradient = ctx.createLinearGradient(0, c.height * HR, 0, c.height);
+            ground_gradient.addColorStop(0, '#000000');
+            ground_gradient.addColorStop(1, '#003300');
 
-        // Do the same for L2 loop
-        const buildings2 = [];
-        for (let i = 0; i < L2; i++) {
-            const z = (i * Z2 + z2 + 100) % D;
-            buildings2.push({ i, z });
-        }
-        buildings2.sort((b, a) => b.z - a.z);
+            ctx.fillStyle = ground_gradient
+            ctx.fillRect(0, hz, c.width, hz);
 
-        for (const b of buildings2) {
-            const s = D / (D - b.z);
-            const sy = hz + s * 105;
-            const bw = BW * s;
-            const bh = off.height * s / 1.1;
-            const idx = (b.i * 5) % bc;
-            const sx = idx * BW;
-            const side = spread * Math.pow(s, 1.3); 
-            const alpha = Math.pow(b.z / D, 1.2);
-            ctx.globalAlpha = alpha;
-            ctx.drawImage(off, sx, 0, BW, off.height, cx - side - bw + offsetX, sy - bh + offsetY, bw, bh);
-            ctx.drawImage(off, sx, 0, BW, off.height, cx + side + offsetX, sy - bh + offsetY, bw, bh);
+            const baseSpread = 50;
+            const spread = baseSpread * Math.max(1, aspectRatio * 0.8);
 
-            // why not also draw a tunnel here
+            const dt = (time - lastTime) / 1000;
+            lastTime = time;
+            z1 += SP1 * dt * 60;
+            z2 += SP2 * dt * 60;
+
+            let offsetX = (mouseX - cx) * 0.05;
+            let offsetY = (mouseY - hz) * 0.05;
+
+            const buildings1 = [];
+            for (let i = 0; i < L1; i++) {
+                const z = (i * Z1 + z1) % D;
+                buildings1.push({ i, z });
+            }
+            buildings1.sort((b, a) => b.z - a.z);
+
+            for (const b of buildings1) {
+                const s = D / (D - b.z);
+                const sy = hz + s * 100;
+                const bw = BW * s;
+                const bh = off.height * s * 1.1;
+                const idx = (b.i * 7) % bc;
+                const sx = idx * BW;
+                const side = spread * Math.pow(s, 1.5); 
+                const alpha = Math.pow(b.z / D, 0.2);
+                ctx.globalAlpha = alpha;
+                ctx.drawImage(off, sx, 0, BW, off.height, cx - side - bw + offsetX, sy - bh + offsetY, bw, bh);
+                ctx.drawImage(off, sx, 0, BW, off.height, cx + side + offsetX, sy - bh + offsetY, bw, bh);
+            }
+
+            // Do the same for L2 loop
+            const buildings2 = [];
+            for (let i = 0; i < L2; i++) {
+                const z = (i * Z2 + z2 + 100) % D;
+                buildings2.push({ i, z });
+            }
+            buildings2.sort((b, a) => b.z - a.z);
+
+            for (const b of buildings2) {
+                const s = D / (D - b.z);
+                const sy = hz + s * 105;
+                const bw = BW * s;
+                const bh = off.height * s / 1.1;
+                const idx = (b.i * 5) % bc;
+                const sx = idx * BW;
+                const side = spread * Math.pow(s, 1.3); 
+                const alpha = Math.pow(b.z / D, 1.2);
+                ctx.globalAlpha = alpha;
+                ctx.drawImage(off, sx, 0, BW, off.height, cx - side - bw + offsetX, sy - bh + offsetY, bw, bh);
+                ctx.drawImage(off, sx, 0, BW, off.height, cx + side + offsetX, sy - bh + offsetY, bw, bh);
+
+                // why not also draw a tunnel here
+                
+                ctx.beginPath();
+                ctx.arc(c.width/2 + offsetX, c.height*HR + offsetY, bw / 5, 0, Math.PI * 2);
+                ctx.strokeStyle = `rgba(0,255,0,${alpha * 0.6})`;
+                ctx.lineWidth = Math.max(bw * 0.01, 1);
+                ctx.stroke();
+            }
+
+            ctx.globalAlpha = 0.7 + 0.3 * Math.sin(lastTime / 1000); ;
             
-            ctx.beginPath();
-            ctx.arc(c.width/2 + offsetX, c.height*HR + offsetY, bw / 5, 0, Math.PI * 2);
-            ctx.strokeStyle = `rgba(0,255,0,${alpha * 0.6})`;
-            ctx.lineWidth = Math.max(bw * 0.01, 1);
-            ctx.stroke();
+            if (aspectRatio > 5/3) {
+            ctx.font = 'bold 12px monospace';
+            ctx.fillStyle = '#00ff00';
+            ctx.fillText('Click to ' + (forceStop ? 'start' : 'stop') + ' background', 10, c.height - 10);
+            }
+
+            ctx.globalAlpha = 1;
+
+            const ease = 0.015 * dt * 60;
+            mouseX += (targetX - mouseX) * ease;
+            mouseY += (targetY - mouseY) * ease;
         }
+        
 
-        ctx.globalAlpha = 1;
+        running = aspectRatio > 5/3 && !forceStop;
 
-        const ease = 0.015 * dt * 60;
-        mouseX += (targetX - mouseX) * ease;
-        mouseY += (targetY - mouseY) * ease;
         requestAnimationFrame(draw);
     }
     requestAnimationFrame(draw);
