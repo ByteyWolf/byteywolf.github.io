@@ -191,7 +191,7 @@ const BW = 100, BH = 150, WW = 6, WH = 8, WG = 3;
         }
         
 
-        running = aspectRatio > 5/3 && !forceStop;
+        running = aspectRatio > 5/3 && !forceStop && !document.hidden;
 
         requestAnimationFrame(draw);
     }

@@ -237,7 +237,7 @@ body {
 }
 
 .category-img:hover {
-    filter: grayscale(1) brightness(5);
+    filter: grayscale(1) brightness(5) drop-shadow(1px 1px 0.4em #005500);
 }
 
 
@@ -286,6 +286,8 @@ body {
     background-image: url("/img/bg_block.png");
     background-image: linear-gradient(180deg, #000000, #001A00);
     background-size: cover;
+
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
 }
 
 .box-title-small, .project-header {
@@ -296,6 +298,7 @@ body {
     font-size: larger;
     font-weight: bold;
     border-top: 1px solid #050;
+    background-image: linear-gradient(180deg, #000000, #001500);
 }
 
 .box-title-small {
@@ -456,6 +459,7 @@ body {
 
 .menu-content {
     display: block;
+    perspective: 1000px;
 }
 
 .hardware-entry {
@@ -477,6 +481,11 @@ body {
     height: auto;
     margin-bottom: 1em;
 }
+
+.phone-entry {
+    width: 20%; font-size: 1em; padding: 2%;
+}
+
 
 @media (max-width: 768px) {
     .menu-checkbox:checked + .menu-content {
@@ -588,15 +597,13 @@ body {
         padding: 8%;
     }
     .column1e {
-        float: left;
-        vertical-align: top;
-        width: 47%;
-        margin-right: 4%;
+        width: 96%;
     }
     .column2e {
-        float: left;
-        vertical-align: top;
-        width: 47%;
+        width: 96%;
+    }
+    .phone-entry {
+        width: 40%; font-size: 1.2em; padding: 4%;
     }
 
 }
