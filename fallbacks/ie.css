@@ -1,1 +1,15 @@
+/* This fallback is meant for Internet Explorer 6 and 7 only */
+
 .topbar-img { padding-bottom: 1em; }
+.leftbar-ext { height: expression(this.parentNode.offsetHeight + "px");}
+
+* html .leftbar-ext, * html .leftbar {
+    background: none;
+    zoom: 1;
+    filter: progid:DXImageTransform.Microsoft.gradient(
+        startColorstr=#090909, 
+        endColorstr=#101010, 
+        GradientType=1
+    );
+    border-right: 0.3em #050505 solid;
+}

@@ -83,6 +83,7 @@ body {
     word-wrap: break-word;
     font-size: 0.9rem;
     z-index: 0;
+    text-align: center;
 }
 
 #starCanvas {
@@ -103,6 +104,7 @@ body {
     background-image: url("/img/bg_page.png");
     border: 2px solid #005500;
     zoom: 1;
+    text-align: left;
 
     filter: drop-shadow(0 0 10px rgba(0, 255, 0, 0.4));
 }
@@ -128,11 +130,9 @@ body {
 .snout {
     position: absolute;
     top: 100%;
-    width: 50%;
-    margin: 0 25%;
-    left: 0;
-    zoom: 1;
-    /*filter: drop-shadow(0 0 20px #005500);*/
+    left: 25%;
+    width: 50%;            /* width of the snout */
+    zoom: 1;                /* for IE6 hasLayout */
 }
 
 .topbar-img, .topbar-img-wap, .topbar-img-pda {
@@ -152,6 +152,7 @@ body {
 }
 
 .leftbar-ext {
+    display: block;
     position: absolute;
     width: 20%;
     height: 100%;
@@ -162,7 +163,7 @@ body {
     background-color: #101010;
     background-image: linear-gradient(90deg, #090909 0%, #101010 95%, #090909 100%);
     border-right: 0.3em #050505 solid;
-    z-index: 0;
+    z-index: 1;
 }
 
 .leftbar {
@@ -200,6 +201,7 @@ body {
     height: 2em;
     zoom: 1;
     text-align: right;
+    z-index: 999;
 }
 
 .top-cutout img {
@@ -223,7 +225,7 @@ body {
     display: block;
     width: 60%;
     margin: 0 20%;
-    padding: 10% 0;
+    padding: 1.5em 0;
     zoom: 1;
 }
 
@@ -273,10 +275,8 @@ body {
 
 .box {
     position: relative;
-    background: #111;
     color: #0f0;
     border: 1px solid #050;
-    padding-top: 20px; /* old ie fallback */
     padding: 1.5em 1em;
     word-wrap: break-word; 
     overflow-wrap: break-word;
@@ -288,6 +288,10 @@ body {
     background-size: cover;
 
     box-shadow: 0 0 10px rgba(0, 255, 0, 0.4);
+}
+
+.box span {
+    zoom: 1;
 }
 
 .box-title-small, .project-header {
@@ -438,7 +442,9 @@ body {
 }
 
 .ice-breaker .fursona {
-    width: 8em; height:8em; float: right; background-color: #005500;
+    width: 8em; height: 8em;
+    position: absolute;
+    top: 1em; right: 1em;
 }
 
 .nohighlight:hover {
@@ -502,6 +508,7 @@ body {
         font-weight: bold;
         color: #0f0;
         text-decoration: underline;
+        font-size: larger;
     }
 
 
