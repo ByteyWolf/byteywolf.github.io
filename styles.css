@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -72,8 +74,6 @@ hr {
 img {
     image-rendering: crisp-edges;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 body {
     height: 100%;
@@ -636,6 +636,9 @@ to {background-position: 0 80px, 0 0, 0 20em; }
     }
     .phone-entry {
         width: 40%; font-size: 1.2em; padding: 4%;
+    }
+    .column1 {
+        margin-right: 0;
     }
 
 }
