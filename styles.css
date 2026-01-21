@@ -79,7 +79,7 @@ body {
     height: 100%;
     margin: 0;
     background-color: black;
-    background-image: url('https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGt1enlscXd5a2JiNmVjcjd3bzdnNmM1cGZnbG9qNnNwejczeGVlcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9PIbzfaYc5wtGq5DPG/giphy.gif'); /* fallback for js background */
+    background-image: url('/img/starry.gif'); /* fallback for js background */
     font-size: 11px;
     word-wrap: break-word;
     font-size: 0.9rem;
